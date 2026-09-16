@@ -161,61 +161,61 @@ export const TV_PACKAGES = [
 export const LOUNGE_PACKAGES = [
   {
     id: "lounge-1jam",
-    title: "1 Jam Mabar Personal",
-    price: "Rp 35.000",
-    rate: "/ jam (PS5) | Rp 25rb (PS4)",
+    title: "1 Jam Mabar",
+    price: "Rp 15.000",
+    rate: "/ jam (PS5: 15k | PS4: 10k)",
     badge: null,
     features: [
-      "Bebas Pilih Konsol PS5 atau PS4",
+      "Tarif PS5: Rp 15.000 / jam",
+      "Tarif PS4: Rp 10.000 / jam",
       "Ruangan VIP Full AC Dingin",
-      "TV 50 Inch 4K HDR Layar Lebar",
-      "Termasuk 2 Stik DualSense Original",
-      "Bebas Pilih & Ganti Game Sepuasnya",
-      "Koneksi Internet Super Cepat"
+      "TV 50 Inch 4K Layar Lebar",
+      "Termasuk 2 Stik Original Wireless",
+      "Bebas Ganti Game Sepuasnya"
     ]
   },
   {
     id: "lounge-2jam",
     title: "2 Jam Mabar Seru",
-    price: "Rp 68.000",
-    rate: "/ 2 jam (PS5) | Rp 45rb (PS4)",
+    price: "Rp 30.000",
+    rate: "/ 2 jam (PS5: 30k | PS4: 20k)",
     badge: null,
     features: [
-      "Bebas Pilih Konsol PS5 atau PS4",
+      "Tarif PS5: Rp 30.000 / 2 jam",
+      "Tarif PS4: Rp 20.000 / 2 jam",
       "Ruangan VIP Full AC & Sofa Kulit",
       "TV 50 Inch 4K Ultra HD",
-      "Termasuk 2 Stik DualSense Original",
-      "Bebas Ganti Game Tanpa Batas",
+      "Termasuk 2 Stik Original Wireless",
       "Free Air Mineral Dingin"
     ]
   },
   {
     id: "lounge-3jam",
     title: "Paket Mabar 3 Jam (Hemat)",
-    price: "Rp 95.000",
-    rate: "/ 3 jam (PS5) | Rp 60rb (PS4)",
+    price: "Rp 40.000",
+    rate: "/ 3 jam (PS5: 40k | PS4: 25k)",
     badge: "Paling Populer",
     features: [
-      "Bebas Pilih Konsol PS5 atau PS4",
+      "Tarif Hemat PS5: Rp 40.000 / 3 jam",
+      "Tarif Hemat PS4: Rp 25.000 / 3 jam",
       "Ruangan VIP Full AC Dingin Maksimal",
-      "TV 50 Inch 4K HDR Imersif",
-      "Termasuk 2 Stik DualSense Wireless",
-      "Bebas Pilih Seluruh Game Katalog",
+      "TV 50 Inch 4K Layar Lebar",
+      "Termasuk 2 Stik DualSense / DualShock",
       "Free Snack & Air Mineral"
     ]
   },
   {
     id: "lounge-begadang",
     title: "Paket Begadang Night",
-    price: "Rp 230.000",
-    rate: "/ 8 jam (22.00 - 06.00 WIB)",
+    price: "Rp 95.000",
+    rate: "/ 8 jam (PS5: 95k | PS4: 65k)",
     badge: "Spesial Begadang",
     features: [
-      "Main Puas Semalaman (8 Jam Penuh)",
+      "Main Semalaman (22.00 - 06.00 WIB)",
+      "Tarif PS5: Rp 95.000 | PS4: Rp 65.000",
       "Ruangan Private VIP Khusus Begadang",
       "TV 50 Inch 4K Layar Besar",
-      "Bisa Tambah 4 Stik Mabar Rame-rame",
-      "Bebas Main Semua Game PS5 & PS4",
+      "Bebas Main Semua Game Katalog",
       "Free Kopi Panas / Teh & Air Mineral"
     ]
   }

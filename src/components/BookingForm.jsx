@@ -52,6 +52,7 @@ export default function BookingForm({ initialConsole = 'ps5', initialColor = 'gl
   }, []);
 
   const currentConsole = CONSOLES.find((c) => c.id === consoleType) || CONSOLES[0];
+  const isPs5 = consoleType === 'ps5';
 
   useEffect(() => {
     const hasColor = currentConsole.colors.some((c) => c.id === colorId);
@@ -77,23 +78,22 @@ export default function BookingForm({ initialConsole = 'ps5', initialColor = 'gl
     estimatedTotal = baseConsolePrice + extraControllerPrice + tvPrice + bracketPrice;
   } else {
     // Lounge / Main di Tempat Pricing
-    const isPs5 = consoleType === 'ps5';
     let baseLounge = 0;
     if (loungeDuration === '1jam') {
-      baseLounge = isPs5 ? 35000 : 25000;
-      loungeDurationLabel = '1 Jam Mabar';
+      baseLounge = isPs5 ? 15000 : 10000;
+      loungeDurationLabel = isPs5 ? '1 Jam Mabar PS5 (Rp 15.000)' : '1 Jam Mabar PS4 (Rp 10.000)';
     } else if (loungeDuration === '2jam') {
-      baseLounge = isPs5 ? 68000 : 45000;
-      loungeDurationLabel = '2 Jam Mabar';
+      baseLounge = isPs5 ? 30000 : 20000;
+      loungeDurationLabel = isPs5 ? '2 Jam Mabar PS5 (Rp 30.000)' : '2 Jam Mabar PS4 (Rp 20.000)';
     } else if (loungeDuration === '3jam') {
-      baseLounge = isPs5 ? 95000 : 60000;
-      loungeDurationLabel = 'Paket Mabar 3 Jam (Hemat)';
+      baseLounge = isPs5 ? 40000 : 25000;
+      loungeDurationLabel = isPs5 ? 'Paket Hemat 3 Jam PS5 (Rp 40.000)' : 'Paket Hemat 3 Jam PS4 (Rp 25.000)';
     } else if (loungeDuration === '5jam') {
-      baseLounge = isPs5 ? 150000 : 95000;
-      loungeDurationLabel = 'Paket Puas 5 Jam';
+      baseLounge = isPs5 ? 65000 : 45000;
+      loungeDurationLabel = isPs5 ? 'Paket Puas 5 Jam PS5 (Rp 65.000)' : 'Paket Puas 5 Jam PS4 (Rp 45.000)';
     } else if (loungeDuration === 'begadang') {
-      baseLounge = isPs5 ? 230000 : 150000;
-      loungeDurationLabel = 'Paket Begadang Night (22.00 - 06.00)';
+      baseLounge = isPs5 ? 95000 : 65000;
+      loungeDurationLabel = isPs5 ? 'Paket Begadang PS5 (Rp 95.000)' : 'Paket Begadang PS4 (Rp 65.000)';
     }
     const extraStick = extraControllers * 15000;
     estimatedTotal = (baseLounge * unitCount) + extraStick;
@@ -504,11 +504,11 @@ Persyaratan KTP dan STNK siap. Terima Kasih`;
                           outline: 'none',
                         }}
                       >
-                        <option value="1jam">1 Jam Mabar</option>
-                        <option value="2jam">2 Jam Mabar</option>
-                        <option value="3jam">Paket Mabar 3 Jam (Paling Laris)</option>
-                        <option value="5jam">Paket Puas 5 Jam</option>
-                        <option value="begadang">Paket Begadang (22.00 - 06.00)</option>
+                        <option value="1jam">1 Jam Mabar ({isPs5 ? 'PS5: Rp 15.000' : 'PS4: Rp 10.000'})</option>
+                        <option value="2jam">2 Jam Mabar ({isPs5 ? 'PS5: Rp 30.000' : 'PS4: Rp 20.000'})</option>
+                        <option value="3jam">Paket Hemat 3 Jam ({isPs5 ? 'PS5: Rp 40.000' : 'PS4: Rp 25.000'})</option>
+                        <option value="5jam">Paket Puas 5 Jam ({isPs5 ? 'PS5: Rp 65.000' : 'PS4: Rp 45.000'})</option>
+                        <option value="begadang">Paket Begadang 8 Jam ({isPs5 ? 'PS5: Rp 95.000' : 'PS4: Rp 65.000'})</option>
                       </select>
                     </div>
 
