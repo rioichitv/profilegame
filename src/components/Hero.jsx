@@ -85,7 +85,7 @@ export default function Hero() {
             >
               <a href="#form-pemesanan" className="btn-primary hero-btn-main" style={{ padding: '13px 26px', fontSize: '0.96rem', borderRadius: '10px' }}>
                 <Gamepad2 size={18} />
-                <span>Pesan Konsol &amp; Warna</span>
+                <span>Pesan Konsol Sekarang!</span>
               </a>
             </div>
           </div>

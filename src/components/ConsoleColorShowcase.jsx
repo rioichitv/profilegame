@@ -92,10 +92,14 @@ export default function ConsoleColorShowcase({ onSelectConsoleAndColor }) {
             gridTemplateColumns: '1fr 1.15fr',
             gap: '40px',
             alignItems: 'center',
+            overflow: 'hidden',
+            width: '100%',
+            maxWidth: '100%',
+            boxSizing: 'border-box',
           }}
         >
           {/* Left: Real Console Photo Preview */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', minWidth: 0, maxWidth: '100%' }}>
             <div
               className="console-photo-floating"
               style={{
@@ -170,28 +174,29 @@ export default function ConsoleColorShowcase({ onSelectConsoleAndColor }) {
           </div>
 
           {/* Right: Console Specs, Color Selector Swatches, and Inclusions */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '100%', minWidth: 0, maxWidth: '100%' }}>
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                <span style={{ fontSize: '0.84rem', color: '#2563eb', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', marginBottom: '8px', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '0.82rem', color: '#2563eb', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                   {activeConsole.subtitle}
                 </span>
                 <span
                   style={{
-                    fontSize: '0.94rem',
+                    fontSize: '0.92rem',
                     fontWeight: 800,
                     color: '#2563eb',
                     backgroundColor: '#eff6ff',
                     padding: '4px 12px',
                     borderRadius: '6px',
                     border: '1px solid #bfdbfe',
+                    whiteSpace: 'nowrap',
                   }}
                 >
                   {activeConsole.priceLabel}
                 </span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px', flexWrap: 'wrap' }}>
-                <h3 style={{ fontSize: '1.9rem', margin: 0, color: '#0f172a' }}>{activeConsole.name}</h3>
+                <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 1.9rem)', margin: 0, color: '#0f172a' }}>{activeConsole.name}</h3>
                 <span
                   style={{
                     display: 'inline-flex',
@@ -210,21 +215,25 @@ export default function ConsoleColorShowcase({ onSelectConsoleAndColor }) {
                   Stok: {activeConsole.stock} Unit Ready
                 </span>
               </div>
-              <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: 1.6 }}>
+              <p style={{ fontSize: '0.90rem', color: '#475569', lineHeight: 1.6 }}>
                 {activeConsole.description}
               </p>
             </div>
 
             {/* COLOR SELECTOR SWATCHES */}
             <div
+              className="color-swatches-box"
               style={{
                 backgroundColor: '#f8fafc',
-                padding: '16px 20px',
+                padding: '16px 18px',
                 borderRadius: '12px',
                 border: '1px solid #e2e8f0',
+                width: '100%',
+                maxWidth: '100%',
+                boxSizing: 'border-box',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
                 <label style={{ fontSize: '0.88rem', fontWeight: 700, color: '#0f172a' }}>
                   Pilih Varian Warna Konsol:
                 </label>
@@ -233,7 +242,7 @@ export default function ConsoleColorShowcase({ onSelectConsoleAndColor }) {
                 </span>
               </div>
 
-              <div className="color-swatches-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+              <div className="color-swatches-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', width: '100%' }}>
                 {activeConsole.colors.map((color) => {
                   const isSelected = color.id === activeColorId;
                   return (
@@ -245,7 +254,7 @@ export default function ConsoleColorShowcase({ onSelectConsoleAndColor }) {
                         display: 'flex',
                         alignItems: 'center',
                         gap: '8px',
-                        padding: '8px 12px',
+                        padding: '8px 10px',
                         borderRadius: '8px',
                         cursor: 'pointer',
                         transition: 'all 0.2s ease',
@@ -253,6 +262,8 @@ export default function ConsoleColorShowcase({ onSelectConsoleAndColor }) {
                         backgroundColor: isSelected ? '#ffffff' : '#f8fafc',
                         boxShadow: isSelected ? '0 2px 8px rgba(37, 99, 235, 0.15)' : 'none',
                         width: '100%',
+                        minWidth: 0,
+                        boxSizing: 'border-box',
                       }}
                     >
                       <span
@@ -266,7 +277,7 @@ export default function ConsoleColorShowcase({ onSelectConsoleAndColor }) {
                           flexShrink: 0,
                         }}
                       />
-                      <span style={{ fontSize: '0.82rem', fontWeight: isSelected ? 700 : 500, color: isSelected ? '#2563eb' : '#334155', textAlign: 'left', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                      <span style={{ fontSize: '0.80rem', fontWeight: isSelected ? 700 : 500, color: isSelected ? '#2563eb' : '#334155', textAlign: 'left', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', minWidth: 0, flex: 1 }}>
                         {color.name}
                       </span>
                     </button>
@@ -280,13 +291,13 @@ export default function ConsoleColorShowcase({ onSelectConsoleAndColor }) {
             </div>
 
             {/* Included in this Rental Package */}
-            <div>
+            <div style={{ width: '100%', minWidth: 0 }}>
               <p style={{ fontSize: '0.86rem', fontWeight: 700, color: '#0f172a', marginBottom: '8px' }}>
                 Paket Sewa Sudah Termasuk:
               </p>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: '8px' }}>
+              <div className="console-features-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '8px', width: '100%' }}>
                 {activeConsole.features.map((feat, i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#475569' }}>
+                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#475569', minWidth: 0 }}>
                     <div
                       style={{
                         width: '18px',
@@ -302,18 +313,18 @@ export default function ConsoleColorShowcase({ onSelectConsoleAndColor }) {
                     >
                       <Check size={12} strokeWidth={3} />
                     </div>
-                    <span>{feat}</span>
+                    <span style={{ wordBreak: 'break-word', minWidth: 0 }}>{feat}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Button to Apply this Console & Color to Booking Form */}
-            <div style={{ paddingTop: '6px' }}>
+            <div style={{ paddingTop: '6px', width: '100%' }}>
               <button
                 onClick={handleApplyToBooking}
                 className="btn-primary"
-                style={{ width: '100%', padding: '13px', fontSize: '0.96rem', borderRadius: '10px' }}
+                style={{ width: '100%', maxWidth: '100%', padding: '13px', fontSize: '0.94rem', borderRadius: '10px', justifyContent: 'center', boxSizing: 'border-box' }}
               >
                 <span>Pilih {activeConsole.name} ({activeColor.name}) di Form</span>
               </button>
@@ -326,7 +337,21 @@ export default function ConsoleColorShowcase({ onSelectConsoleAndColor }) {
         @media (max-width: 900px) {
           #pilih-ps .clean-card {
             grid-template-columns: 1fr !important;
-            padding: 22px !important;
+            padding: 20px 14px !important;
+          }
+        }
+        @media (max-width: 600px) {
+          #pilih-ps .console-features-grid {
+            grid-template-columns: 1fr !important;
+          }
+          #pilih-ps .color-swatches-box {
+            padding: 12px 10px !important;
+          }
+          #pilih-ps .color-swatches-grid {
+            gap: 6px !important;
+          }
+          #pilih-ps .color-swatches-grid button {
+            padding: 7px 6px !important;
           }
         }
       `}</style>

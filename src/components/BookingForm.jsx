@@ -191,6 +191,7 @@ Persyaratan KTP dan STNK siap. Terima Kasih`;
 
           {/* Booking Type Switcher */}
           <div
+            className="booking-type-switcher"
             style={{
               display: 'inline-flex',
               padding: '5px',
@@ -199,6 +200,7 @@ Persyaratan KTP dan STNK siap. Terima Kasih`;
               border: '1.5px solid #cbd5e1',
               marginTop: '22px',
               gap: '6px',
+              maxWidth: '100%',
             }}
           >
             <button
@@ -251,12 +253,14 @@ Persyaratan KTP dan STNK siap. Terima Kasih`;
             padding: '38px',
             backgroundColor: '#ffffff',
             border: '1px solid #cbd5e1',
+            width: '100%',
+            boxSizing: 'border-box',
           }}
         >
           <form onSubmit={handleGenerateWhatsApp}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1.05fr 1fr', gap: '38px' }} className="booking-grid">
+            <div style={{ display: 'grid', gridTemplateColumns: '1.05fr 1fr', gap: '38px', width: '100%' }} className="booking-grid">
               {/* LEFT COLUMN: CONSOLE SELECTION & REAL PHOTO PREVIEW */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '22px', width: '100%', minWidth: 0 }}>
                 {/* 1. Pilih Tipe Konsol */}
                 <div>
                   <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700, color: '#0f172a', marginBottom: '8px' }}>
@@ -424,7 +428,7 @@ Persyaratan KTP dan STNK siap. Terima Kasih`;
 
                 {/* 3. Durasi Sewa vs Durasi Main di Tempat */}
                 {bookingMode === 'delivery' ? (
-                  <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '14px' }}>
+                  <div className="form-row-2col" style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '14px', width: '100%' }}>
                     <div>
                       <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#0f172a', marginBottom: '6px' }}>
                         Durasi Sewa:
@@ -474,13 +478,14 @@ Persyaratan KTP dan STNK siap. Terima Kasih`;
                           color: '#0f172a',
                           fontSize: '0.88rem',
                           outline: 'none',
+                          boxSizing: 'border-box',
                         }}
                       />
                     </div>
                   </div>
                 ) : (
                   /* Main di Tempat (Lounge) Duration & Unit */
-                  <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '14px' }}>
+                  <div className="form-row-2col" style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '14px', width: '100%' }}>
                     <div>
                       <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#0f172a', marginBottom: '6px' }}>
                         Paket Main di Tempat:
@@ -526,6 +531,7 @@ Persyaratan KTP dan STNK siap. Terima Kasih`;
                           color: '#0f172a',
                           fontSize: '0.88rem',
                           outline: 'none',
+                          boxSizing: 'border-box',
                         }}
                       />
                     </div>
@@ -595,7 +601,7 @@ Persyaratan KTP dan STNK siap. Terima Kasih`;
                   <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#0f172a', marginBottom: '6px' }}>
                     Stik Tambahan:
                   </label>
-                  <div style={{ display: 'flex', gap: '8px' }}>
+                  <div className="controller-buttons-row" style={{ display: 'flex', gap: '8px', width: '100%' }}>
                     {[
                       { count: 0, label: 'Standar (2 Stik)' },
                       { count: 1, label: '+1 Stik (3 Stik)' },
@@ -615,6 +621,8 @@ Persyaratan KTP dan STNK siap. Terima Kasih`;
                           border: extraControllers === st.count ? '1.5px solid #2563eb' : '1px solid #cbd5e1',
                           backgroundColor: extraControllers === st.count ? '#eff6ff' : '#ffffff',
                           color: extraControllers === st.count ? '#2563eb' : '#475569',
+                          minWidth: 0,
+                          boxSizing: 'border-box',
                         }}
                       >
                         {st.label}
@@ -625,7 +633,7 @@ Persyaratan KTP dan STNK siap. Terima Kasih`;
               </div>
 
               {/* RIGHT COLUMN: GAME SELECTION & CUSTOMER INFO & ESTIMATE */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '100%', minWidth: 0 }}>
                 {/* Game Selection Tag Picker (LIMIT 2 GAMES) */}
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
@@ -789,7 +797,7 @@ Persyaratan KTP dan STNK siap. Terima Kasih`;
                   )}
 
                   {/* Tanggal Bulan Tahun & Waktu Jam (sesuai arahan user) */}
-                  <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '12px' }}>
+                  <div className="form-row-2col" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '12px', width: '100%' }}>
                     <div>
                       <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, color: '#334155', marginBottom: '5px' }}>
                         {bookingMode === 'delivery' ? 'Tanggal Pengiriman (Tgl/Bln/Thn):' : 'Tanggal Main di Tempat:'} *
