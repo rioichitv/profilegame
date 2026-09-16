@@ -646,6 +646,11 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0 !important;
   }
 
+  /* Hide benefit checklist on mobile — replaced by banner image */
+  .hero-checklist-hide {
+    display: none !important;
+  }
+
   /* Feature grid: 2 columns on tablet/mobile */
   .hero-features-grid {
     grid-template-columns: 1fr 1fr !important;
@@ -870,31 +875,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* --- Game Cards: Always 2 per row on mobile --- */
-@media (max-width: 680px) {
+/* --- Game Cards: 2-col grid on mobile (handled by component <style>, backup rule here) --- */
+@media (max-width: 640px) {
   .game-cards-grid {
     grid-template-columns: 1fr 1fr !important;
     gap: 10px !important;
-  }
-  .game-cards-grid .clean-card {
-    border-radius: 12px !important;
-  }
-  .game-cards-grid .clean-card > div:last-child {
-    padding: 10px 8px !important;
-    gap: 4px !important;
-  }
-  .game-cards-grid h4 {
-    font-size: 0.82rem !important;
-    line-height: 1.25 !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-  }
-  .game-cards-grid p {
-    font-size: 0.70rem !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
   }
 }
 

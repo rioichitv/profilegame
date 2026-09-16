@@ -56,8 +56,8 @@ export default function Hero() {
               Pilihan konsol PlayStation generasi terbaru dengan varian warna resmi (Glacier White, Midnight Black, Volcanic Red, Cobalt Blue). Siap antar ke rumah atau booking main langsung di tempat!
             </p>
 
-            {/* Benefit Checklists */}
-            <div className="hero-checklist" style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '30px' }}>
+            {/* Benefit Checklists — hidden on mobile */}
+            <div className="hero-checklist hero-checklist-hide" style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '30px' }}>
               {[
                 'Sewa Antar ke Rumah atau Main Langsung di Tempat (Game Lounge)',
                 'Ready Stock Unit: 8 Unit PS5 & 12 Unit PS4 Siap Kirim Hari Ini',
