@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CONSOLES, TV_PACKAGES } from '../data/content';
+import { CONSOLES, TV_PACKAGES, LOUNGE_PACKAGES } from '../data/content';
 import { Check, Tv, Gamepad2, Trophy, MapPin, Sparkles } from 'lucide-react';
 
 export default function PricingPackages({ onSelectPackage }) {
@@ -57,11 +57,16 @@ export default function PricingPackages({ onSelectPackage }) {
               return (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
+                  onClick={() => {
+                    setActiveTab(tab.id);
+                    if (tab.id === 'lounge') {
+                      window.dispatchEvent(new CustomEvent('selectBookingMode', { detail: 'lounge' }));
+                    }
+                  }}
                   style={{
-                    padding: '10px 20px',
+                    padding: '10px 18px',
                     borderRadius: '8px',
-                    fontSize: '0.9rem',
+                    fontSize: '0.88rem',
                     fontWeight: 700,
                     cursor: 'pointer',
                     border: 'none',
@@ -70,11 +75,12 @@ export default function PricingPackages({ onSelectPackage }) {
                     color: isActive ? '#ffffff' : '#64748b',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '8px',
+                    justifyContent: 'center',
+                    gap: '6px',
                   }}
                 >
-                  <Icon size={16} />
-                  <span>{tab.label}</span>
+                  <Icon size={16} style={{ flexShrink: 0 }} />
+                  <span style={{ textAlign: 'left', lineHeight: 1.25 }}>{tab.label}</span>
                 </button>
               );
             })}
@@ -222,9 +228,32 @@ export default function PricingPackages({ onSelectPackage }) {
         {activeTab === 'lounge' && (
           <div>
             <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-              <p style={{ color: '#475569', fontSize: '0.96rem', maxWidth: '700px', margin: '0 auto' }}>
+              <p style={{ color: '#475569', fontSize: '0.96rem', maxWidth: '700px', margin: '0 auto 16px' }}>
                 Main game langsung di Game Station RajaGamerz! Ruangan ber-AC dingin, sofa VIP empuk, TV 50 inch 4K, bebas ganti game, dan koneksi internet super cepat.
               </p>
+              <button
+                type="button"
+                onClick={() => {
+                  window.dispatchEvent(new CustomEvent('selectBookingMode', { detail: 'lounge' }));
+                  const orderSection = document.getElementById('form-pemesanan');
+                  if (orderSection) {
+                    orderSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="btn-primary"
+                style={{
+                  padding: '10px 22px',
+                  fontSize: '0.9rem',
+                  borderRadius: '8px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  cursor: 'pointer',
+                }}
+              >
+                <MapPin size={16} />
+                <span>Buka Form Booking Main di Tempat Sekarang</span>
+              </button>
             </div>
 
             <div
