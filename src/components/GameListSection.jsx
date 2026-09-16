@@ -123,6 +123,7 @@ export default function GameListSection({ onSelectGame, selectedGameTitles = [] 
 
             {/* Search Input */}
             <div
+              className="game-search-wrap"
               style={{
                 position: 'relative',
                 display: 'flex',
@@ -345,7 +346,7 @@ export default function GameListSection({ onSelectGame, selectedGameTitles = [] 
                             whiteSpace: 'nowrap',
                           }}
                         >
-                          Detail →
+                          Detail
                         </span>
                       )}
                     </div>
@@ -728,16 +729,41 @@ export default function GameListSection({ onSelectGame, selectedGameTitles = [] 
           }
         }
 
-        /* Filter bar responsive */
-        @media (max-width: 520px) {
+        /* Filter bar responsive: compact & space-efficient, no wasted vertical box */
+        @media (max-width: 600px) {
           .game-filter-bar {
             flex-direction: column !important;
             align-items: stretch !important;
-            gap: 10px !important;
+            gap: 8px !important;
+            padding: 8px 12px !important;
+            margin-top: 14px !important;
+            border-radius: 12px !important;
           }
-          .game-filter-bar > div:last-child {
+          .game-filter-bar > div:first-child {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            width: 100% !important;
+            gap: 6px !important;
+            flex-wrap: wrap !important;
+          }
+          .game-filter-bar button {
+            padding: 5px 12px !important;
+            font-size: 0.8rem !important;
+          }
+          .game-search-wrap {
+            flex: none !important;
             max-width: 100% !important;
             min-width: 0 !important;
+            width: 100% !important;
+            height: auto !important;
+          }
+          .game-search-wrap input {
+            max-width: 100% !important;
+            width: 100% !important;
+            padding: 7px 10px 7px 32px !important;
+            font-size: 0.82rem !important;
+            height: 36px !important;
           }
         }
       `}</style>
