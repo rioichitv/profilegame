@@ -53,7 +53,7 @@ export default function Hero() {
                 marginBottom: '24px',
               }}
             >
-              Pilihan konsol PlayStation generasi terbaru dengan varian warna resmi (Glacier White, Midnight Black, Volcanic Red, Cobalt Blue). Siap antar ke rumah atau booking main langsung di tempat!
+              Mau mabar game terbaru bareng teman, seru-seruan bareng keluarga di rumah, atau butuh hiburan premium untuk acara kantor? RajaGamerz hadir sebagai solusi total untuk semua kebutuhan gaming Anda!
             </p>
 
             {/* Benefit Checklists — hidden on mobile */}
