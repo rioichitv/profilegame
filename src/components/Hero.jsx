@@ -4,6 +4,7 @@ import { Truck, ShieldCheck, Gamepad2, Trophy, Check, MapPin, Zap, Star } from '
 export default function Hero() {
   return (
     <section
+      className="hero-section"
       style={{
         position: 'relative',
         paddingTop: '120px',
@@ -21,7 +22,7 @@ export default function Hero() {
             gridTemplateColumns: '1.15fr 1fr',
             gap: '48px',
             alignItems: 'center',
-            marginBottom: '60px',
+            marginBottom: '40px',
           }}
           className="hero-grid-kuropedia"
         >
@@ -29,6 +30,7 @@ export default function Hero() {
           <div>
             {/* Main Hero Headline */}
             <h1
+              className="hero-title"
               style={{
                 fontSize: 'clamp(2.2rem, 4.2vw, 3.4rem)',
                 lineHeight: 1.18,
@@ -43,6 +45,7 @@ export default function Hero() {
 
             {/* Subtitle */}
             <p
+              className="hero-subtitle"
               style={{
                 fontSize: '1.02rem',
                 color: '#475569',
@@ -54,7 +57,7 @@ export default function Hero() {
             </p>
 
             {/* Benefit Checklists */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '32px' }}>
+            <div className="hero-checklist" style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '30px' }}>
               {[
                 'Sewa Antar ke Rumah atau Main Langsung di Tempat (Game Lounge)',
                 'Ready Stock Unit: 8 Unit PS5 & 12 Unit PS4 Siap Kirim Hari Ini',
@@ -149,27 +152,27 @@ export default function Hero() {
         <div className="hero-mobile-banner">
           <div className="hero-mobile-banner-inner">
             <img
-              src="/consoles/ps5-glacier-white.jpg"
-              alt="PlayStation 5"
+              src="/hero-banner-mobile.jpg"
+              alt="PlayStation 5 dan DualSense Warna Lengkap"
               className="hero-mobile-banner-img"
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = 'https://rajagamerz.wordpress.com/wp-content/uploads/2021/10/playstation-5-dualsense-new-colors.jpg';
+                e.target.src = '/ps5-colors-banner.jpg';
               }}
             />
             <div className="hero-mobile-banner-overlay" />
             <div className="hero-mobile-banner-content">
               <div className="hero-mobile-badge-row">
-                <span className="hero-mobile-badge-pill"><Zap size={12} />PS5 &amp; PS4</span>
-                <span className="hero-mobile-badge-pill"><Star size={12} />Antar ke Rumah</span>
+                <span className="hero-mobile-badge-pill"><Zap size={12} />PS5 &amp; PS4 Original</span>
+                <span className="hero-mobile-badge-pill"><Star size={12} />Antar Pasang ke TV</span>
               </div>
               <div className="hero-mobile-price-tags">
                 <div className="hero-mobile-price-tag">
-                  <span className="hero-mobile-price-label">PS5</span>
+                  <span className="hero-mobile-price-label">Sewa PS5</span>
                   <span className="hero-mobile-price-value">Rp 15rb/jam</span>
                 </div>
                 <div className="hero-mobile-price-tag">
-                  <span className="hero-mobile-price-label">PS4</span>
+                  <span className="hero-mobile-price-label">Sewa PS4</span>
                   <span className="hero-mobile-price-value">Rp 10rb/jam</span>
                 </div>
               </div>

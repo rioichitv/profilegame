@@ -581,14 +581,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 960px) {
+  /* Reduce hero section top padding on mobile so header is immediately visible */
+  .hero-section {
+    padding-top: 84px !important;
+    padding-bottom: 36px !important;
+  }
+
   /* Show mobile banner BELOW the headlines (it's below the grid in DOM) */
   .hero-mobile-banner {
     display: block;
-    margin-top: 28px;
-    margin-bottom: 0;
-    border-radius: 20px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 20px 50px -10px rgba(15, 23, 42, 0.25);
+    box-shadow: 0 16px 36px -10px rgba(15, 23, 42, 0.2), 0 0 0 1px rgba(37, 99, 235, 0.2);
   }
 
   /* Collapse hero grid to 1 column so only text column shows */
@@ -602,24 +608,29 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
+    background-color: #0b0f19;
   }
 
   .hero-mobile-banner-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
   }
 
+  /* Subtle gradient overlay at edges only so console & controllers remain crystal clear */
   .hero-mobile-banner-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
-      135deg,
-      rgba(10, 15, 40, 0.72) 0%,
-      rgba(37, 99, 235, 0.35) 60%,
-      rgba(10, 15, 40, 0.15) 100%
+      to bottom,
+      rgba(15, 23, 42, 0.6) 0%,
+      transparent 28%,
+      transparent 64%,
+      rgba(15, 23, 42, 0.8) 100%
     );
+    pointer-events: none;
   }
 
   .hero-mobile-banner-content {
@@ -628,61 +639,60 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 18px 20px;
+    padding: 12px 14px;
+    pointer-events: none;
   }
 
   .hero-mobile-badge-row {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     flex-wrap: wrap;
   }
 
   .hero-mobile-badge-pill {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    gap: 4px;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(8px);
     color: #ffffff;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    padding: 5px 12px;
+    padding: 4px 10px;
     border-radius: 999px;
     letter-spacing: 0.02em;
   }
 
   .hero-mobile-price-tags {
     display: flex;
-    gap: 10px;
+    gap: 8px;
   }
 
   .hero-mobile-price-tag {
-    background: rgba(255, 255, 255, 0.12);
-    border: 1.5px solid rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(12px);
-    border-radius: 12px;
-    padding: 10px 18px;
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 6px 14px;
     display: flex;
     flex-direction: column;
-    gap: 2px;
-    min-width: 90px;
+    gap: 1px;
   }
 
   .hero-mobile-price-label {
-    font-size: 0.72rem;
+    font-size: 0.66rem;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.7);
+    color: #93c5fd;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
   }
 
   .hero-mobile-price-value {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     font-weight: 800;
     color: #ffffff;
     font-family: 'Outfit', sans-serif;
-    letter-spacing: -0.02em;
   }
 
   /* Mobile Quick Stats row */
@@ -730,35 +740,43 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     justify-content: center;
   }
-}
 
-@media (max-width: 960px) {
   /* Hide the right column device mockups on mobile — banner replaces it */
   .hero-mockup-wrap {
     display: none !important;
-  }
-
-  /* Reduce hero section top padding on mobile */
-  section[style*="paddingTop: '120px'"] {
-    padding-top: 80px !important;
   }
 }
 
 @media (max-width: 600px) {
   .hero-mobile-banner-inner {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
   }
 
   .hero-mobile-price-value {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
   }
 
   /* Make hero heading crisper on small screens */
-  .hero-grid-kuropedia h1 {
-    font-size: clamp(1.75rem, 7vw, 2.4rem) !important;
-    line-height: 1.22 !important;
+  .hero-title {
+    font-size: clamp(1.8rem, 6.5vw, 2.3rem) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 12px !important;
   }
 
+  .hero-subtitle {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .hero-checklist {
+    gap: 8px !important;
+    margin-bottom: 22px !important;
+  }
+
+  .hero-checklist span {
+    font-size: 0.85rem !important;
+  }
   /* Full-width CTA button on phones */
   .hero-btn-main {
     width: 100% !important;
