@@ -57,7 +57,7 @@ export default function Navbar() {
               RAJA<span style={{ color: '#2563eb' }}>GAMERZ</span>
             </span>
             <p style={{ fontSize: '0.74rem', color: '#64748b', letterSpacing: '0.02em', margin: 0 }}>
-              Sewa PS5 & PS4 Harian
+              Sewa PS5 & PS4
             </p>
           </div>
         </a>

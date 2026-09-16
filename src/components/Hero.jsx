@@ -15,7 +15,7 @@ export default function Hero() {
     >
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
 
-        {/* 2-Column Hero: Desktop */}
+        {/* 2-Column Hero: Desktop Only */}
         <div
           style={{
             display: 'grid',
@@ -74,8 +74,9 @@ export default function Hero() {
               ))}
             </div>
 
-            {/* Action Buttons */}
+            {/* Action Buttons — desktop only, hidden on mobile */}
             <div
+              className="hero-cta-desktop"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -180,8 +181,17 @@ export default function Hero() {
           </div>
         </div>
 
+        {/* ===== CTA BUTTON BELOW BANNER (Mobile only) ===== */}
+        <div className="hero-cta-mobile">
+          <a href="#form-pemesanan" className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '14px 20px', fontSize: '1rem', borderRadius: '12px' }}>
+            <Gamepad2 size={20} />
+            <span>Pesan Konsol Sekarang!</span>
+          </a>
+        </div>
+
         {/* Feature Highlights Grid */}
         <div
+          className="hero-features-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
@@ -195,11 +205,11 @@ export default function Hero() {
             { icon: <Gamepad2 size={22} />, title: 'Pilihan Game', desc: 'Katalog game terpopuler: FC 25, Spider-Man 2, GTA V, Tekken 8, dan eFootball.' },
             { icon: <Trophy size={22} />, title: 'Event & Turnamen', desc: 'Tersedia paket multi-unit konsol, TV LED 32-50 inci, dan standing bracket.' },
           ].map((item, i) => (
-            <div key={i} className="clean-card" style={{ padding: '24px 20px', display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <div key={i} className="clean-card hero-feat-card" style={{ padding: '24px 20px', display: 'flex', alignItems: 'center', gap: '16px' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: '12px', backgroundColor: '#eff6ff', border: '1px solid #bfdbfe', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2563eb', flexShrink: 0 }}>
                 {item.icon}
               </div>
-              <div>
+              <div style={{ minWidth: 0 }}>
                 <h4 style={{ fontSize: '1.02rem', marginBottom: '3px', color: '#0f172a' }}>{item.title}</h4>
                 <p style={{ fontSize: '0.84rem', color: '#64748b', margin: 0 }}>{item.desc}</p>
               </div>
